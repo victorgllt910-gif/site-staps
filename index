@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio STAPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir: #0d0d0d;
+      --blanc: #f5f0e8;
+      --accent: #c8ff00;
+      --gris: #1a1a1a;
+      --gris2: #2a2a2a;
+      --texte-menu: #888;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--noir);
+      color: var(--blanc);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: var(--noir);
+      border-bottom: 1px solid #222;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      color: var(--blanc);
+    }
+    .logo span { color: var(--accent); }
+
+    .header-tag {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--texte-menu);
+    }
+
+    /* LAYOUT PRINCIPAL */
+    .layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* SIDEBAR MENU */
+    nav {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--gris);
+      border-right: 1px solid #222;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 0;
+      overflow-y: auto;
+    }
+
+    .nav-label {
+      font-size: 0.6rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--texte-menu);
+      padding: 0 28px 20px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 28px;
+      text-decoration: none;
+      color: #aaa;
+      font-size: 0.85rem;
+      font-weight: 400;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--blanc);
+      background: var(--gris2);
+      border-left-color: var(--accent);
+    }
+
+    nav a .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      color: var(--accent);
+      opacity: 0.6;
+      width: 20px;
+    }
+
+    nav a:hover .num, nav a.active .num { opacity: 1; }
+
+    .nav-divider {
+      height: 1px;
+      background: #222;
+      margin: 16px 28px;
+    }
+
+    /* IFRAME ZONE */
+    .content-area {
+      flex: 1;
+      position: relative;
+      background: #111;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: var(--blanc);
+    }
+
+    /* Écran d'accueil */
+    .welcome {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: var(--noir);
+      text-align: center;
+      transition: opacity 0.4s;
+    }
+
+    .welcome h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+
+    .welcome h1 span { color: var(--accent); }
+
+    .welcome p {
+      color: var(--texte-menu);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .welcome .arrow {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 3px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .welcome.hidden { opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MON<span>.</span>STAPS</div>
+  <div class="header-tag">L3 STAPS — Portfolio personnel</div>
+</header>
+
+<div class="layout">
+  <nav>
+    <div class="nav-label">Navigation</div>
+
+    <a href="#" onclick="loadPage('presentation.html', this)">
+      <span class="num">01</span> Présentation personnelle
+    </a>
+    <a href="#" onclick="loadPage('cv.html', this)">
+      <span class="num">02</span> CV en PDF
+    </a>
+    <a href="#" onclick="loadPage('linkedin.html', this)">
+      <span class="num">03</span> Compte LinkedIn
+    </a>
+
+    <div class="nav-divider"></div>
+
+    <a href="#" onclick="loadPage('formations.html', this)">
+      <span class="num">04</span> Formations après L3
+    </a>
+    <a href="#" onclick="loadPage('debouches.html', this)">
+      <span class="num">05</span> Débouchés souhaités
+    </a>
+  </nav>
+
+  <div class="content-area">
+    <div class="welcome" id="welcome">
+      <h1>BIENVENUE<br>SUR MON<br><span>PORTFOLIO</span></h1>
+      <p>L3 STAPS — Université Paris Nanterre</p>
+      <div class="arrow">← Sélectionne une rubrique</div>
+    </div>
+    <iframe id="mainFrame" src="" title="Contenu principal"></iframe>
+  </div>
+</div>
+
+<script>
+  function loadPage(page, el) {
+    document.getElementById('welcome').classList.add('hidden');
+    document.getElementById('mainFrame').src = page;
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    el.classList.add('active');
+    return false;
+  }
+</script>
+
+</body>
+</html>
