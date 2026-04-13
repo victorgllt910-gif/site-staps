@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>LinkedIn</title>
+  <title>LinkedIn — Victor Guillemot</title>
   <link rel="stylesheet" href="style.css">
   <style>
     .linkedin-card {
@@ -36,6 +36,7 @@
     .linkedin-card .title {
       font-size: 0.85rem;
       color: #888;
+      margin-top: 4px;
     }
     .linkedin-logo {
       display: flex;
@@ -48,6 +49,19 @@
       margin-bottom: 4px;
     }
     .linkedin-logo svg { width: 20px; height: 20px; fill: var(--accent); }
+    .info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .info-row .line {
+      font-size: 0.8rem;
+      color: #777;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .info-row .line span { color: #aaa; }
   </style>
 </head>
 <body>
@@ -56,7 +70,7 @@
   <h1>MON <span>LINKEDIN</span></h1>
   <div class="divider"></div>
 
-  <p>Retrouvez mon profil LinkedIn pour en savoir plus sur mon parcours professionnel et mes expériences.</p>
+  <p>Retrouve mon profil LinkedIn pour en savoir plus sur mon parcours et mes expériences.</p>
 
   <div class="linkedin-card">
     <div class="linkedin-logo">
@@ -66,12 +80,17 @@
     <div class="avatar">VG</div>
     <div>
       <div class="name">Victor Guillemot</div>
-      <div class="title">Étudiant L3 STAPS — Université Paris Nanterre</div>
+      <div class="title">Étudiant L3 STAPS Management Sportif — Université Paris Nanterre</div>
+    </div>
+    <div class="info-row">
+      <div class="line">📍 <span>Paris 17, France</span></div>
+      <div class="line">🏉 <span>Analyste vidéo & Entraîneur rugby — SCUF Fédérale 2</span></div>
+      <div class="line">🎓 <span>Licence STAPS 2023–2026 — UPN (Paris X)</span></div>
     </div>
   </div>
 
   <br>
-  <a class="btn accent" "//www.linkedin.com/in/victor-guillemot-62b51b3a6/?skipRedirect=true="https://www.linkedin.com/in/ton-profil" target="_blank">
+  <a class="btn accent" href="https://www.linkedin.com/in/victor-guillemot-62b51b3a6/" target="_blank">
     → Voir mon profil LinkedIn
   </a>
 
